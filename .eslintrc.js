@@ -18,7 +18,9 @@ module.exports = {
     node: true,
   },
   extends: [
+    require.resolve('@umijs/fabric/dist/eslint'),
     'eslint:recommended',
+    'airbnb',
     'plugin:react/recommended',
     'plugin:jsx-a11y/recommended',
     'plugin:prettier/recommended',
@@ -35,7 +37,13 @@ module.exports = {
       },
     ],
     'react/prop-types': 0,
-    'no-unused-vars': 0,
     'react/no-unescaped-entities': 0,
+    'react/jsx-no-undef': 'error',
+    'no-console': 0,
+    'no-underscore-dangle': 'off',
+    'import/no-unresolved': 'off',
+    'no-unused-vars': ['error', { vars: 'all', args: 'after-used', ignoreRestSiblings: false }],
+    'react/jsx-filename-extension': [1, { extensions: ['.js', '.jsx'] }],
+    'react/jsx-props-no-spreading': 'off'
   },
 }

@@ -1,11 +1,11 @@
 import siteMetadata from '@/data/siteMetadata';
 import headerNavLinks from '@/data/headerNavLinks';
 import Logo from '@/data/logo.svg';
-import Link from './Link';
-import SectionContainer from './SectionContainer';
-import Footer from './Footer';
-import MobileNav from './MobileNav';
-import ThemeSwitch from './ThemeSwitch';
+import Link from '@/components/Link';
+import SectionContainer from '@/components/SectionContainer';
+import Footer from '@/components/Footer';
+import MobileNav from '@/components/MobileNav';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 const LayoutWrapper = ({ children }) => {
   return (

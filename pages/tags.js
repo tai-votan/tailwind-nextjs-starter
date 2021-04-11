@@ -1,18 +1,18 @@
-import siteMetadata from '@/data/siteMetadata'
-import { kebabCase } from '@/lib/utils'
-import { getAllTags } from '@/lib/tags'
-import Tag from '@/components/Tag'
-import Link from '@/components/Link'
-import { PageSeo } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata';
+import { kebabCase } from '@/lib/utils';
+import { getAllTags } from '@/lib/tags';
+import Tag from '@/components/Tag';
+import Link from '@/components/Link';
+import { PageSeo } from '@/components/SEO';
 
 export async function getStaticProps() {
-  const tags = await getAllTags('blog')
+  const tags = await getAllTags('blog');
 
-  return { props: { tags } }
+  return { props: { tags } };
 }
 
 export default function Tags({ tags }) {
-  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a])
+  const sortedTags = Object.keys(tags).sort((a, b) => tags[b] - tags[a]);
   return (
     <>
       <PageSeo
@@ -34,15 +34,14 @@ export default function Tags({ tags }) {
                 <Tag text={t} />
                 <Link
                   href={`/tags/${kebabCase(t)}`}
-                  className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300"
-                >
+                  className="-ml-2 text-sm font-semibold text-gray-600 uppercase dark:text-gray-300">
                   {` (${tags[t]})`}
                 </Link>
               </div>
-            )
+            );
           })}
         </div>
       </div>
     </>
-  )
+  );
 }

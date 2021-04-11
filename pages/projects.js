@@ -1,9 +1,7 @@
-import Image from 'next/image'
-import siteMetadata from '@/data/siteMetadata'
-import projectsData from '@/data/projectsData'
-import Link from '@/components/Link'
-import Card from '@/components/Card'
-import { PageSeo } from '@/components/SEO'
+import siteMetadata from '@/data/siteMetadata';
+import projectsData from '@/data/projectsData';
+import Card from '@/components/Card';
+import { PageSeo } from '@/components/SEO';
 
 export default function Projects() {
   return (
@@ -25,17 +23,11 @@ export default function Projects() {
         <div className="container py-12">
           <div className="flex flex-wrap -m-4">
             {projectsData.map((d) => (
-              <Card
-                key={d.title}
-                title={d.title}
-                description={d.description}
-                imgSrc={d.imgSrc}
-                href={d.href}
-              />
+              <Card key={d.title} title={d.title} description={d.description} imgSrc={d.imgSrc} href={d.href} />
             ))}
           </div>
         </div>
       </div>
     </>
-  )
+  );
 }

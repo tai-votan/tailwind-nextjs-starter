@@ -1,5 +1,5 @@
-import { NextSeo, ArticleJsonLd } from 'next-seo'
-import siteMetadata from '@/data/siteMetadata'
+import { NextSeo, ArticleJsonLd } from 'next-seo';
+import siteMetadata from '@/data/siteMetadata';
 
 export const SEO = {
   title: siteMetadata.title,
@@ -15,22 +15,22 @@ export const SEO = {
         url: `${siteMetadata.siteUrl}${siteMetadata.socialBanner}`,
         alt: siteMetadata.title,
         width: 1200,
-        height: 600,
-      },
-    ],
+        height: 600
+      }
+    ]
   },
   twitter: {
     handle: siteMetadata.twitter,
     site: siteMetadata.twitter,
-    cardType: 'summary_large_image',
+    cardType: 'summary_large_image'
   },
   additionalMetaTags: [
     {
       name: 'author',
-      content: siteMetadata.author,
-    },
-  ],
-}
+      content: siteMetadata.author
+    }
+  ]
+};
 
 export const PageSeo = ({ title, description, url }) => {
   return (
@@ -41,28 +41,25 @@ export const PageSeo = ({ title, description, url }) => {
       openGraph={{
         url,
         title,
-        description,
+        description
       }}
     />
-  )
-}
+  );
+};
 
 export const BlogSeo = ({ title, summary, date, lastmod, url, tags, images = [] }) => {
-  const publishedAt = new Date(date).toISOString()
-  const modifiedAt = new Date(lastmod || date).toISOString()
-  let imagesArr =
-    images.length === 0
-      ? [siteMetadata.socialBanner]
-      : typeof images === 'string'
-      ? [images]
-      : images
+  const publishedAt = new Date(date).toISOString();
+  const modifiedAt = new Date(lastmod || date).toISOString();
+  const imageLength = 0;
+  const imagesList = typeof images === 'string' ? [images] : images;
+  const imagesArr = images.length === imageLength ? [siteMetadata.socialBanner] : imagesList;
 
   const featuredImages = imagesArr.map((img) => {
     return {
       url: `${siteMetadata.siteUrl}${img}`,
-      alt: title,
-    }
-  })
+      alt: title
+    };
+  });
 
   return (
     <>
@@ -76,18 +73,18 @@ export const BlogSeo = ({ title, summary, date, lastmod, url, tags, images = [] 
             publishedTime: publishedAt,
             modifiedTime: modifiedAt,
             authors: [`${siteMetadata.siteUrl}/about`],
-            tags,
+            tags
           },
           url,
           title,
           description: summary,
-          images: featuredImages,
+          images: featuredImages
         }}
         additionalMetaTags={[
           {
             name: 'twitter:image',
-            content: featuredImages[0].url,
-          },
+            content: featuredImages[0].url
+          }
         ]}
       />
       <ArticleJsonLd
@@ -101,5 +98,5 @@ export const BlogSeo = ({ title, summary, date, lastmod, url, tags, images = [] 
         url={url}
       />
     </>
-  )
-}
+  );
+};

@@ -1,5 +1,5 @@
-import Image from 'next/image'
-import Link from '@/components/Link'
+import Image from 'next/image';
+import Link from '@/components/Link';
 
 const Card = ({ title, description, imgSrc, href }) => (
   <div className="p-4 md:w-1/2 md" style={{ maxWidth: '544px' }}>
@@ -38,14 +38,13 @@ const Card = ({ title, description, imgSrc, href }) => (
           <Link
             href={href}
             className="text-base font-medium leading-6 text-blue-500 hover:text-blue-600 dark:hover:text-blue-400"
-            aria-label={`Link to ${title}`}
-          >
+            aria-label={`Link to ${title}`}>
             Learn more &rarr;
           </Link>
         )}
       </div>
     </div>
   </div>
-)
+);
 
-export default Card
+export default Card;
